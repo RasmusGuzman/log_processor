@@ -1,4 +1,4 @@
-from main import filter_rows, aggregate_rows, process_csv, find_comparison_operator
+from src.main import filter_rows, aggregate_rows, process_csv, find_comparison_operator
 from tests.conftest import csv_reader, sample_csv_file
 import pytest
 
