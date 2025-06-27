@@ -1,5 +1,5 @@
 from src.main import filter_rows, aggregate_rows, process_csv, find_comparison_operator
-from tests.conftest import csv_reader, sample_csv_file
+from conftest import csv_reader, sample_csv_file
 import pytest
 
 def test_filter_rows(csv_reader):
