@@ -11,7 +11,9 @@ class BaseReporter:
 
 class AverageReport(BaseReporter):
     def generate(self, entries: List[LogEntry]) -> List[ReportData]:
-        data: DefaultDict[str, Dict] = defaultdict(lambda: {"count": 0, "total_time": 0.0})
+        data: DefaultDict[str, Dict] = defaultdict(
+            lambda: {"count": 0, "total_time": 0.0}
+        )
 
         for entry in entries:
             data[entry.url]["count"] += 1
