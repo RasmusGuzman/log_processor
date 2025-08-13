@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import List, Dict, DefaultDict
+from typing import DefaultDict, Dict, List
 
 from log_processor.models import LogEntry, ReportData
 
