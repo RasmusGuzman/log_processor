@@ -43,4 +43,4 @@ jobs:
           mypy . 
       - name: Static Type Checking
         run: |
-          mypy src/ --strict || true
+          mypy . --strict || true
