@@ -1,0 +1,46 @@
+name: Python App CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python Environment
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+      
+      - name: Install Dependencies
+        run: |
+          pip install --prefer-binary -r requirements.txt
+
+      - name: Unit Testing
+        run: |
+          pytest tests
+
+      - name: Formatting Check (Black)
+        run: |
+          black --diff --check .
+
+      - name: Import Sorting Check (Isort)
+        run: |
+          isort --check-only --profile black .
+
+      - name: Style Guide Enforcement (Flake8)
+        run: |
+          flake8 --exit-zero .
+      - name: Static Type Checking
+        run: |
+          mypy . 
+      - name: Static Type Checking
+        run: |
+          mypy src/ --strict || true
